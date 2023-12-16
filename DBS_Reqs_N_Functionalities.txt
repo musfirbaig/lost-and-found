@@ -1,0 +1,11 @@
+1. The system must be able to maintain multiple user accounts and admin accounts.
+2. The administrative privileges include removal of items, removal of users and other as well.
+3. The forms to add an item on the system must allow users to add detailed descriptions. These descriptions may include optional comments about the condition and attributes to help user identify items, pictures, item name, found person’s contact in case the person opts to keep the item with them.
+4. I will later share the detailed ERD, that will also target the requirement of marketability. Such as the introduction of concept of community credits.
+5. For the front-end, following requirements are of paramount importance:
+	(a) The detailed form to add these descriptions.
+	(b) Refer to NUST LMS specifically the recently viewed courses, we will be implementing a similar front-end module to show the lost items based to community credits, we can further specialize this rating by also developing a ranking algorithm to consider the date of reporting.
+	(c) By clicking on the item, another form will open to report FOUND, against the lost items.
+	(d) This form will have a verification field, which will be processed at the people who reported the item as LOST, to consider that the belonging reaches to the right person. (Also, we must ensure that this processing is discussed by our team in detail)
+	(e) We must ensure the only person able to edit the LOST item field is the person who reported it. In, case he got some additional info on the lost item. 
+	(f) Lastly, the login and authentication portals that you have been successful to implement.
