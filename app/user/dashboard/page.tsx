@@ -1,7 +1,6 @@
 "use client"
 
 import { GeneralPage } from "./general";
-import { UserProvider } from "../UserContext";
 
 // so this is inside the layout page
 // basically layout includes header and sidebar, and the main section is rendered
@@ -12,9 +11,7 @@ import { UserProvider } from "../UserContext";
 
 export default function Dashboard(){
     return (
-        <UserProvider>
             <GeneralPage />
-        </UserProvider>
     )
 }
 

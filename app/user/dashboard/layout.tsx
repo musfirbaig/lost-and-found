@@ -1,3 +1,5 @@
+import { UserProvider } from "../UserContext";
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
@@ -62,7 +64,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <summary
             className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
-            <span className="text-sm font-medium"> Teams </span>
+            <span className="text-sm font-medium"> My Reported Items </span>
 
             <span className="shrink-0 transition duration-300 group-open:-rotate-180">
               <svg
@@ -86,7 +88,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 href=""
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Banned Users
+                Reported Lost Items
               </a>
             </li>
 
@@ -95,7 +97,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 href=""
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Calendar
+                Reported Found Items
               </a>
             </li>
           </ul>
@@ -125,7 +127,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <summary
             className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
-            <span className="text-sm font-medium"> Account </span>
+            <span className="text-sm font-medium"> Report An Item </span>
 
             <span className="shrink-0 transition duration-300 group-open:-rotate-180">
               <svg
@@ -149,7 +151,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 href=""
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Details
+                Report Lost Item
               </a>
             </li>
 
@@ -158,7 +160,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 href=""
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Security
+                Report Found Item
               </a>
             </li>
 
@@ -202,7 +204,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               {/* DYNAMIC SECTION */}
               <section className="col-span-10 ml-64 p-8">
                 <h1>Dashboard Layout</h1>
-                {children}
+                <UserProvider>
+                    {children}
+                </UserProvider>
               </section>
             </div>
 

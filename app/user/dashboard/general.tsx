@@ -3,6 +3,7 @@ export function GeneralPage(){
 
     const userId = useUser();
     console.log(userId);
+    const name = "musfirbaig";
 
     // console.log(useUser());
     return (
@@ -11,6 +12,9 @@ export function GeneralPage(){
 
                 <section className="text-gray-600 body-font">
   <div className="container px-5 -mx-20">
+
+{/* it needed to be removed, only for testing */}
+    <p>{userId.userId}</p>
 
     <div className="flex flex-wrap justify-center">
 
