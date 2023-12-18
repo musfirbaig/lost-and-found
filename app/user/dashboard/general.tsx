@@ -7,7 +7,7 @@ export function GeneralPage(){
 
     // console.log(useUser());
     return (
-        <div> 
+        <div className="ml-64"> 
                 {/* <h1>Dashboard Section</h1> */}
 
                 <section className="text-gray-600 body-font">
