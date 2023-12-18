@@ -1,6 +1,11 @@
-
+"use client"
+import { useUser } from '@/app/user/UserContext';
 
 export default function FoundedItems(){
+
+  const {userId, usersData} = useUser();
+  const found_items = usersData[userId]["found_items"];
+
 
     return (
         <div>
@@ -18,7 +23,40 @@ export default function FoundedItems(){
     </thead>
 
     <tbody className="divide-y divide-gray-200">
-      <tr>
+
+    {found_items.map((item:any, index:number) => (
+          <tr key={index}>
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">{item['title']}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['date']}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['description']}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['location']}</td>
+              <td className="whitespace-nowrap px-4 py-2">
+                <a
+                  href="#"
+                  className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                >
+                  View
+                </a>
+              </td>
+          </tr>
+        ))}
+
+      {/* <tr>
+        <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">Bag</td>
+        <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">24/05/2023</td>
+        <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">black CamelMountain</td>
+        <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">Seecs Entrance</td>
+        <td className="whitespace-nowrap px-4 py-2">
+          <a
+            href="#"
+            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+          >
+            View
+          </a>
+        </td>
+      </tr> */}
+
+      {/* <tr>
         <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">Bag</td>
         <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">24/05/2023</td>
         <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">black CamelMountain</td>
@@ -61,7 +99,8 @@ export default function FoundedItems(){
             View
           </a>
         </td>
-      </tr>
+      </tr> */}
+      
     </tbody>
   </table>
 </div>

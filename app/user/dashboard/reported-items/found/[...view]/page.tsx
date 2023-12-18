@@ -1,8 +1,13 @@
 "use client"
 import { CldImage } from 'next-cloudinary';
+
+
  
 
 export default function ViewItem(){
+
+ 
+
 
     return (
               <div className="container py-5 px-20 flex items-center justify-center">
