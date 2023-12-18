@@ -137,16 +137,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
           <ul className="mt-2 space-y-1 px-4">
             <li>
-              <a
-                href=""
+            <Link href="/user/dashboard/report-items/lost">
+              <span
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
                 Report Lost Item
-              </a>
+              </span>
+              </Link>
             </li>
 
             <li>
-              <Link href="/reported-items/found">
+              <Link href="/user/dashboard/report-items/found">
               <span
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >

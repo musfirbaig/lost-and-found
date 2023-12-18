@@ -1,4 +1,6 @@
-
+"use client"
+import { CldImage } from 'next-cloudinary';
+ 
 
 export default function ViewItem(){
 
@@ -9,11 +11,21 @@ export default function ViewItem(){
                   {/* Column 1: Image */}
                   <div className="col-span-4 rounded-lg overflow-hidden">
                     {/* Aspect ratio for a fixed height */}
-                    <img
+                    {/* <img
                       alt="Guitar"
                       src="https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
                       className="w-full h-96 object-cover"
-                    />
+                    /> */}
+
+                  <CldImage
+                    // width="960"
+                    width="400"
+                    // height="600"
+                    height="500"
+                    src="cld-sample-5"
+                    sizes="100vw"
+                    alt="Description of my image"
+                  />
                   </div>
           
                   {/* Column 2: Content */}

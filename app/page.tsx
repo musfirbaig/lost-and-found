@@ -1,3 +1,23 @@
+"use client"
+import Image from "next/image";
+import { CldUploadButton } from "next-cloudinary";
+
+type UploadResult = {
+    info : {
+        public_id : string,
+    },
+    event: 'success'
+
+}
+export default function  Home(){
+    return (
+        <main>
+            <CldUploadButton onUpload={(result:any)=>{console.log(result.info.public_id)}} uploadPreset="found_eiv9ks7h" />
+        </main>
+    )
+}
+
+
 // import Image from 'next/image'
 
 // export default function Home() {

@@ -1,7 +1,7 @@
 "use client"
 import { CldUploadButton } from "next-cloudinary";
 
-export default function ReportFoundItem() {
+export default function ReportLostItem() {
     let uploadedImgPublicId = "";
 
     return (
@@ -9,7 +9,7 @@ export default function ReportFoundItem() {
             <div className="grid grid-cols-12 w-4/5 mx-auto mt-8 p-6 bg-white rounded shadow-md">
       {/* <form onSubmit={handleSubmit}> */}
       <form className="col-span-12">
-        <h2 className="text-2xl font-semibold mb-4">Report Found Item</h2>
+        <h2 className="text-2xl font-semibold mb-4">Report Lost Item</h2>
         <div className="mb-4">
           <label htmlFor="title" className="block text-gray-600 text-sm font-semibold mb-2">
             Title
