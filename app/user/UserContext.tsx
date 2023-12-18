@@ -6,6 +6,13 @@ import { createContext, useContext, useState } from 'react';
 import {onAuthStateChanged } from "firebase/auth";
 import {auth} from "../../config/firebase"
 
+
+
+
+
+
+
+
 // Create a context with an initial value (empty object)
 const UserContext = createContext({});
 
