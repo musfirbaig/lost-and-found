@@ -16,7 +16,28 @@ import {auth} from "../../config/firebase"
 
 // const filePath = path.join(process.cwd(), '../', 'users.json');
 
+// interface UsersData {
 
+// }
+
+
+export type FoundItem = {
+  title: string;
+  description: string;
+  location: string;
+  image: string;
+  date: string;
+};
+
+type UserData = {
+  user_image: string;
+  found_items: FoundItem[];
+  lost_items: any[]; // Add the correct type for lost_items if needed
+};
+
+type UsersData = {
+  [userId: string]: UserData;
+};
 
 
 
@@ -30,13 +51,22 @@ export const UserProvider = ({ children }:{
   const [userId, setUserId] = useState("");
   const [usersData, setUsersData] = useState({});
 
-  // function setUsersData(){}
+  
+
+  function appendFoundItem(foundItem:FoundItem){
+    
+    let data:UsersData = usersData;
+    data[userId]["found_items"].push(foundItem);
+    setUsersData(data);
+
+  }
 
   function getUsersData(){
     // const fileContent = fs.readFileSync(filePath, 'utf-8');
     // const data = JSON.parse(fileContent);
     const data = {
       "wBv4E8BRPNOlc3Ocj8HD9ZyTF0n1": {
+        "user_image" : "alksdfjlask",
         "found_items": [
           {
             "title": "Bag",
@@ -99,7 +129,8 @@ export const UserProvider = ({ children }:{
   // Pass the state and methods down through the context provider
   const contextValue = {
     userId,
-    usersData
+    usersData,
+    appendFoundItem
   };
 
   return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;

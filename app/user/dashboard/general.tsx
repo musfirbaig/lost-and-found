@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useUser } from "../UserContext"
 export function GeneralPage(){
 
@@ -17,23 +18,29 @@ export function GeneralPage(){
     <p>{userId.userId}</p>
 
     <div className="flex flex-wrap justify-center">
-
+    
       <div className="lg:w-1/3 sm:w-1/2 p-4">
+      <Link href="/user/dashboard/report-items/lost">
         <div className="flex relative">
           <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
             <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
             <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5 ">Report Lost Item Here!</h3>
           </div>
         </div>
+        </Link>
       </div>
+
+      
       
       <div className="lg:w-1/3 sm:w-1/2 p-4">
+      <Link href="/user/dashboard/report-items/found">
         <div className="flex relative">
           <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
-            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
-            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5">Report Lost Item Here!</h3>
+            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">FOUND ITEM</h2>
+            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5">Report Found Item Here!</h3>
           </div>
         </div>
+        </Link>
       </div>
       
       <div className="lg:w-1/3 sm:w-1/2 p-4">

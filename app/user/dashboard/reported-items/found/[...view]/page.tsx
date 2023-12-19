@@ -1,18 +1,78 @@
 "use client"
 import { CldImage } from 'next-cloudinary';
-
+import { useUser, FoundItem } from '@/app/user/UserContext';
+import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
  
 
 export default function ViewItem(){
+  // const {usersData, userId} = useUser();
+  const user = useUser();
+  const {usersData, userId} = user as any;
+  const [foundItems, setFoundItems] = useState([]);
+
+  useEffect(() => {
+    if (usersData && userId) {
+      const found_items = usersData[userId]?.found_items || [];
+      // Now you can safely work with found_items
+
+      setFoundItems(found_items);
+
+      // const router:any = useRouter();
+  
+
+      // // Access the current path from the router object
+      // const currentPath = usePathname();
+      // console.log(currentPath);
+
+      // // Split the path into segments
+
+      // const pathSegments = currentPath.split('/');
+
+      // // Get the last segment
+      // const lastSegment = pathSegments[pathSegments.length - 1];
+
+      // // console.log(lastSegment);
+      // const viewItem = found_items[lastSegment];
+
+      
+    }
+  }, [userId, usersData]);
+
+  // const userData = usersData[userId];
+  // const foundItems = userData['found_items'];
+
+  // Extracting last segment which contain item id -- for example found/view/1  (here 1 is last segment)
+
+  // const router:any = useRouter();
+  
+
+  // Access the current path from the router object
+  const currentPath = usePathname();
+  console.log(currentPath);
+
+  // Split the path into segments
+
+  const pathSegments = currentPath.split('/');
+
+  // Get the last segment
+  const lastSegment = pathSegments[pathSegments.length - 1];
+  const index = parseInt(lastSegment, 10);
+
+  // console.log(lastSegment);
+  const viewItem:FoundItem = foundItems[index];
 
  
 
 
     return (
               <div className="container py-5 px-20 flex items-center justify-center">
+                {/* <p>hello path: {lastSegment} {viewItem['title']}</p> */}
+
                 {/* Use max-w-7xl to limit the width of the container */}
-                <div className="bg-white transition shadow-xl grid grid-cols-12 rounded-lg w-full max-w-7xl">
+                {viewItem && (<div className="bg-white transition shadow-xl grid grid-cols-12 rounded-lg w-full max-w-7xl">
                   {/* Column 1: Image */}
                   <div className="col-span-4 rounded-lg overflow-hidden">
                     {/* Aspect ratio for a fixed height */}
@@ -27,7 +87,7 @@ export default function ViewItem(){
                     width="400"
                     // height="600"
                     height="500"
-                    src="cld-sample-5"
+                    src={viewItem.image}
                     sizes="100vw"
                     alt="Description of my image"
                   />
@@ -41,17 +101,17 @@ export default function ViewItem(){
                         <dl className="-my-3 divide-y divide-gray-100 text-sm">
                             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
                             <dt className="font-medium text-gray-900">Title</dt>
-                            <dd className="text-gray-700 sm:col-span-2">Mr</dd>
+                            <dd className="text-gray-700 sm:col-span-2">{viewItem.title}</dd>
                             </div>
 
                             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                            <dt className="font-medium text-gray-900">Name</dt>
-                            <dd className="text-gray-700 sm:col-span-2">John Frusciante</dd>
+                            <dt className="font-medium text-gray-900">Location</dt>
+                            <dd className="text-gray-700 sm:col-span-2">{viewItem.location}</dd>
                             </div>
 
                             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                            <dt className="font-medium text-gray-900">Occupation</dt>
-                            <dd className="text-gray-700 sm:col-span-2">Guitarist</dd>
+                            <dt className="font-medium text-gray-900">Reported Time</dt>
+                            <dd className="text-gray-700 sm:col-span-2">{viewItem.date}</dd>
                             </div>
 
                             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
@@ -60,11 +120,9 @@ export default function ViewItem(){
                             </div>
 
                             <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                            <dt className="font-medium text-gray-900">Bio</dt>
+                            <dt className="font-medium text-gray-900">Description</dt>
                             <dd className="text-gray-700 sm:col-span-2">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis debitis explicabo
-                                doloremque impedit nesciunt dolorem facere, dolor quasi veritatis quia fugit aperiam
-                                aspernatur neque molestiae labore aliquam soluta architecto?
+                                {viewItem.description}
                             </dd>
                             </div>
                         </dl>
@@ -95,7 +153,7 @@ export default function ViewItem(){
                       </a>
                     </div>
                   </div>
-                </div>
+                </div>)}
               </div>
           
           
