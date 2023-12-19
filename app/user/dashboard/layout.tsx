@@ -1,9 +1,12 @@
+import Link from "next/link";
+import { UserProvider } from "../UserContext";
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       {/* HEADER */}
       <header className="bg-gray-50 w-full">
-        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo in Header */}
           <div className="flex-shrink-0">
             <span className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
@@ -52,9 +55,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
     <ul className="mt-6 space-y-1">
       <li>
-        <a href="" className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+        <Link href="/user/dashboard">
+        <span className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
           General
-        </a>
+        </span>
+        </Link>
+
       </li>
 
       <li>
@@ -62,7 +68,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <summary
             className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
-            <span className="text-sm font-medium"> Teams </span>
+            <span className="text-sm font-medium"> My Reported Items </span>
 
             <span className="shrink-0 transition duration-300 group-open:-rotate-180">
               <svg
@@ -82,50 +88,36 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
           <ul className="mt-2 space-y-1 px-4">
             <li>
-              <a
-                href=""
+            <Link href="/user/dashboard/reported-items/lost">
+              <span
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Banned Users
-              </a>
+                Reported Lost Items
+              </span>
+            </Link>
+              
             </li>
 
             <li>
-              <a
-                href=""
+              <Link href="/user/dashboard/reported-items/found">
+              <span
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Calendar
-              </a>
+                Reported Found Items
+              </span>
+              </Link>
+              
             </li>
           </ul>
         </details>
       </li>
 
       <li>
-        <a
-          href=""
-          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          Billing
-        </a>
-      </li>
-
-      <li>
-        <a
-          href=""
-          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-        >
-          Invoices
-        </a>
-      </li>
-
-      <li>
         <details className="group [&_summary::-webkit-details-marker]:hidden">
           <summary
             className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
           >
-            <span className="text-sm font-medium"> Account </span>
+            <span className="text-sm font-medium"> Report An Item </span>
 
             <span className="shrink-0 transition duration-300 group-open:-rotate-180">
               <svg
@@ -145,21 +137,24 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
           <ul className="mt-2 space-y-1 px-4">
             <li>
-              <a
-                href=""
+            <Link href="/user/dashboard/report-items/lost">
+              <span
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Details
-              </a>
+                Report Lost Item
+              </span>
+              </Link>
             </li>
 
             <li>
-              <a
-                href=""
+              <Link href="/user/dashboard/report-items/found">
+              <span
                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
               >
-                Security
-              </a>
+                Report Found Item
+              </span>
+              </Link>
+              
             </li>
 
             <li>
@@ -174,6 +169,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </li>
           </ul>
         </details>
+      </li>
+
+      <li>
+        <a
+          href=""
+          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+        >
+          History
+        </a>
       </li>
     </ul>
   </div>
@@ -200,9 +204,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               </div>
 
               {/* DYNAMIC SECTION */}
-              <section className="col-span-10 ml-64 p-8">
+              <section className="col-span-10 p-8">
                 <h1>Dashboard Layout</h1>
-                {children}
+                <UserProvider>
+                    {children}
+                </UserProvider>
               </section>
             </div>
 

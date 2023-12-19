@@ -42,7 +42,7 @@ export default function LogIn() {
           console.log(user);
       
           // Redirect to the dashboard or any other page upon successful login
-          router.push('../signup');
+          router.push('/user/dashboard');
         } catch (error: any) {
           const errorCode = error.code;
           const errorMessage = error.message;
