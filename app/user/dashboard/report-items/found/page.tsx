@@ -167,9 +167,9 @@ export default function ReportFoundItem() {
 
         <CldUploadButton onUpload={(result:any)=>{
 
-            console.log(result)
+            // console.log(result)
             uploadedImgPublicId = result.info.public_id
-            console.log(uploadedImgPublicId)
+            // console.log(uploadedImgPublicId)
             setImageId(uploadedImgPublicId)
 
             }} uploadPreset="found_eiv9ks7h" />

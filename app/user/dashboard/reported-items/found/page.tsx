@@ -3,8 +3,8 @@ import { useUser } from '@/app/user/UserContext';
 import Link from 'next/link';
 
 export default function FoundedItems(){
-
-  const {userId, usersData} = useUser();
+  const user = useUser();
+  const {userId, usersData} = user as any;
   const found_items = usersData[userId]["found_items"];
 
 

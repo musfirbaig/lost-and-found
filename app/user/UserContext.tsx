@@ -28,11 +28,18 @@ export type FoundItem = {
   image: string;
   date: string;
 };
+export type LostItem = {
+  title: string;
+  description: string;
+  location: string;
+  image: string;
+  date: string;
+};
 
 type UserData = {
   user_image: string;
   found_items: FoundItem[];
-  lost_items: any[]; // Add the correct type for lost_items if needed
+  lost_items: LostItem[]; // Add the correct type for lost_items if needed
 };
 
 type UsersData = {
@@ -57,8 +64,18 @@ export const UserProvider = ({ children }:{
     
     let data:UsersData = usersData;
     data[userId]["found_items"].push(foundItem);
+    console.log("append found item called");
+    console.log(data[userId]);
     setUsersData(data);
 
+  }
+
+  function appendLostItem(lostItem:LostItem){
+    let data:UsersData = usersData;
+    data[userId]["lost_items"].push(lostItem);
+    console.log("append lost item called");
+    console.log(data[userId]);
+    setUsersData(data);
   }
 
   function getUsersData(){
@@ -90,7 +107,29 @@ export const UserProvider = ({ children }:{
               "date": "2023-12-18"
             }
         ],
-        "lost_items": []
+        "lost_items": [
+          {
+            "title": "Phone",
+            "description": "It is samsung s6, with green back cover",
+            "location": "smme ground",
+            "image": "hmbytyhsrmhlxngbbssf",
+            "date": "2023-11-11"
+          },
+          {
+              "title": "Laptop",
+              "description": "It is a dell Laptop",
+              "location": "seecs entrance",
+              "image": "cld-sample-4",
+              "date": "2023-12-18"
+            },
+            {
+              "title": "Tablet",
+              "description": "It is a asus tablet",
+              "location": "sns",
+              "image": "cld-sample-4",
+              "date": "2023-12-18"
+            }
+        ]
       },
       "user2": {
       }
@@ -130,7 +169,8 @@ export const UserProvider = ({ children }:{
   const contextValue = {
     userId,
     usersData,
-    appendFoundItem
+    appendFoundItem,
+    appendLostItem
   };
 
   return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;
