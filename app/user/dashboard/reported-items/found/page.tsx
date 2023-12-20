@@ -1,12 +1,27 @@
 "use client"
 import { useUser } from '@/app/user/UserContext';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function FoundedItems(){
   const user = useUser();
-  const {userId, usersData} = user as any;
-  const found_items = usersData[userId]["found_items"];
+  const {userId, usersData, FoundItem} = user as any;
 
+
+  // let foundItems = null; // Initialize as null or handle an empty state accordingly
+
+  const [foundItems, setFoundItems] = useState([]);
+
+  // const found_items = usersData[userId]["found_items"];
+
+  useEffect(() => {
+    // This function will run after the component mounts
+    // You can perform asynchronous operations or side effects here
+    if (usersData && userId && usersData[userId] && usersData[userId]['found_items']) {
+      setFoundItems(usersData[userId]['found_items']);
+      // You can perform operations or assign foundItems to something else here
+    }
+  }, [userId, usersData]);
 
     return (
         <div>
@@ -25,7 +40,7 @@ export default function FoundedItems(){
 
     <tbody className="divide-y divide-gray-200">
 
-    {found_items.map((item:any, index:number) => (
+    {foundItems.length>0 && (foundItems.map((item:any, index:number) => (
           <tr key={index}>
                   <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">{item['title']}</td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['date']}</td>
@@ -42,7 +57,7 @@ export default function FoundedItems(){
                 
               </td>
           </tr>
-        ))}
+        ))) }
 
       {/* <tr>
         <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">Bag</td>
