@@ -13,21 +13,21 @@ export default function SignUp() {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [contactNo, setContactNo] = useState('');
-  const [username, setUsername] = useState('');
+  // const [username, setUsername] = useState('');
   const [userData, setUserData] = useState({});
 
-  let fakeUser = {
-        user_id: '8Or452e51TSdfUgUlZ78456l5u',
-        user_name: 'nanannanana',
-        email: 'AAAA@example.com',
-        passwords: 'hashedpword1236897',
-        contact_no: '123-6545698-767',
-        user_role: 'client',
-        f_name: 'mohsin',
-        l_name: 'Doe',
-        user_dp_id: 'default-avatar-profile-icon-vector-600nw-1745180411',
+  // let fakeUser = {
+  //       user_id: '8Or452e51TSdfUgUlZ78456l5u',
+  //       user_name: 'nanannanana',
+  //       email: 'AAAA@example.com',
+  //       passwords: 'hashedpword1236897',
+  //       contact_no: '123-6545698-767',
+  //       user_role: 'client',
+  //       f_name: 'mohsin',
+  //       l_name: 'Doe',
+  //       user_dp_id: 'default-avatar-profile-icon-vector-600nw-1745180411',
       
-  }
+  // }
 
   
 
@@ -43,7 +43,7 @@ export default function SignUp() {
 
       if (response.ok) {
         console.log('User registered successfully!');
-        console.log(userData);
+        // console.log(userData);
       } else {
         console.error('Failed to register user:', response.statusText);
       }
@@ -56,7 +56,7 @@ export default function SignUp() {
     // This block of code will be executed whenever userData is updated
     console.log("from signup button ", userData);
     if (Object.keys(userData).length > 0) {
-      console.log(userData);
+      // console.log(userData);
       handleRegisterUser();
     }
   }, [userData]);
@@ -68,7 +68,7 @@ export default function SignUp() {
 
       const registerData = {
         user_id: user.uid,
-        user_name: username,
+        user_name: user.uid,
         email: email,
         passwords: password,
         contact_no: contactNo,
@@ -102,94 +102,7 @@ export default function SignUp() {
 
   
 
-    // const router = useRouter();
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [fname, setFname] = useState('');
-    // const [lname, setLname] = useState('');
-    // const [contactNo, setContactNo] = useState('');
-
-    // // const [userData, setUserData] = useState({
-    // //   user_id: 'userA',
-    // //   user_name: 'john_doe_ric',
-    // //   email: 'A@example.com',
-    // //   passwords: 'hashedpassword12367',
-    // //   contact_no: '123-45698-7890',
-    // //   user_role: 'admin',
-    // //   f_name: 'John',
-    // //   l_name: 'Doe',
-    // //   user_dp_id: 'default-avatar-profile-icon-vector-600nw-1745180411_hdtsox',
-    // // });
-
-    // const [userData, setUserData] = useState({});
     
-    // const submitSignInBtn = ()=>{
-      
-    //     // Call your login function with the current input values
-    //     userSignUp(email, password);
-    // }
-
-
-
-    
-  
-    // const handleRegisterUser = async () => {
-    //   try {
-    //     const response = await fetch('http://localhost:3000/route/APIs/users', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: JSON.stringify(userData),
-    //     });
-  
-    //     if (response.ok) {
-    //       console.log(userData);
-    //       console.log('User registered successfully!');
-    //     } else {
-    //       console.error('Failed to register user:', response.statusText);
-    //     }
-    //   } catch (error) {
-    //     console.error('Error during user registration:', error);
-    //   }
-    // };
-
-    // async function userSignUp(email: string, password: string) {
-    //     try {
-    //       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    //       const user = userCredential.user;
-          
-          
-
-    //       const registerData = {
-    //         user_id : user.uid,
-    //         email : email,
-    //         passwords: password,
-    //         contact_no: contactNo,
-    //         user_role: 'client',
-    //         f_name: fname,
-    //         l_name: lname,
-    //         user_dp_id: 'default-avatar-profile-icon-vector-600nw-1745180411_hdtsox'
-    //     }
-
-    //     setUserData(registerData);
-    //     await handleRegisterUser(); // Wait for handleRegisterUser to complete before moving forward
-
-    //     // Redirect to the dashboard or any other page upon successful login
-    //     router.push('../login');
-
-
-    //     // Redirect to the dashboard or any other page upon successful login
-    //     // router.push('../login');
-    //     console.log(user);
-          
-    //     } catch (error:any) {
-    //       const errorCode = error.code;
-    //       const errorMessage = error.message;
-    //       // Handle login error
-    //       console.error(errorCode, errorMessage);
-    //     }
-    //   }
       
     return (
         <>
@@ -255,7 +168,7 @@ export default function SignUp() {
             </div>
             </div>
 
-            <div>
+            {/* <div>
             <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
               User Name
               </label>
@@ -271,7 +184,7 @@ export default function SignUp() {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
+            </div> */}
 
             <div>
             <label htmlFor="contact" className="block text-sm font-medium leading-6 text-gray-900">
