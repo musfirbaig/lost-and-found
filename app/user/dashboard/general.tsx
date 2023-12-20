@@ -1,9 +1,27 @@
+"use client"
 import Link from "next/link";
 import { useUser } from "../UserContext"
+import { useEffect, useState } from "react";
 export function GeneralPage(){
 
   // testing code by adding fetch requests to test apis
-  
+  const [apiData, setApiData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/route/APIs/users?id=2');
+        const data = await response.json();
+        setApiData(data);
+        console.log("general page is build");
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
 
 

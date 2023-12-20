@@ -7,6 +7,8 @@ import {auth} from '../../config/firebase';
 
 export default function SignUp() {
 
+  
+
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,6 +17,40 @@ export default function SignUp() {
         // Call your login function with the current input values
         userSignUp(email, password);
     }
+
+
+
+    const [userData, setUserData] = useState({
+      user_id: 'userA',
+      user_name: 'john_doe_ric',
+      email: 'A@example.com',
+      passwords: 'hashedpassword12367',
+      contact_no: '123-45698-7890',
+      user_role: 'admin',
+      f_name: 'John',
+      l_name: 'Doe',
+      user_dp_id: 'avatar123',
+    });
+  
+    const handleRegisterUser = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/route/APIs/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        });
+  
+        if (response.ok) {
+          console.log('User registered successfully!');
+        } else {
+          console.error('Failed to register user:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error during user registration:', error);
+      }
+    };
 
     async function userSignUp(email: string, password: string) {
         try {
