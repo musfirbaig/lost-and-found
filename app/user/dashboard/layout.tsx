@@ -64,6 +64,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </li>
 
       <li>
+        <Link href="/user/dashboard/search">
+        <span
+          className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+        >
+          Search
+        </span>
+        </Link>
+      </li>
+
+      <li>
         <details className="group [&_summary::-webkit-details-marker]:hidden">
           <summary
             className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
