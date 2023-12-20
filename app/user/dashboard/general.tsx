@@ -25,11 +25,11 @@ export function GeneralPage(){
 
 
   
-  // const user = useUser();
+  const user = useUser();
   // const {userId, usersData} = useUser();
-    // const {userId, usersData} = user as any;
+    const {userId, usersData} = user as any;
     // console.log(userId);
-    const userId = useUser();
+    // const userId = useUser();
     const name = "musfirbaig";
 
     // console.log(useUser());
@@ -41,16 +41,27 @@ export function GeneralPage(){
   <div className="container px-5 -mx-20">
 
 {/* it needed to be removed, only for testing */}
-    <p>{userId.userId}</p>
+    {/* <p>{userId}</p> */}
 
     <div className="flex flex-wrap justify-center">
+
+    <div className="lg:w-1/3 sm:w-1/2 p-4">
+      <Link href="/user/dashboard/search">
+        <div className="flex relative">
+          <div className="px-8 py-8 relative z-10 w-full border-4 rounded-3xl border-gray-200 bg-white opacity-100 hover:border-gray-500 duration-300  hover:cursor-pointer hover:shadow-2xl">
+            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">SEARCH ITEMS</h2>
+            <h3 className="title-font text-base font-medium text-gray-900 mb-3 text-center my-5 ">View All Items Here!</h3>
+          </div>
+        </div>
+        </Link>
+      </div>
     
       <div className="lg:w-1/3 sm:w-1/2 p-4">
       <Link href="/user/dashboard/report-items/lost">
         <div className="flex relative">
-          <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
-            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
-            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5 ">Report Lost Item Here!</h3>
+          <div className="px-8 py-8 relative z-10 w-full border-4 rounded-3xl border-gray-200 bg-white opacity-100 hover:border-gray-500 duration-300  hover:cursor-pointer hover:shadow-2xl">
+            <h2 className="tracking-widest text-base title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
+            <h3 className="title-font text-sm font-medium text-gray-900 mb-3 text-center my-5 ">Report Lost Item Here!</h3>
           </div>
         </div>
         </Link>
@@ -61,39 +72,36 @@ export function GeneralPage(){
       <div className="lg:w-1/3 sm:w-1/2 p-4">
       <Link href="/user/dashboard/report-items/found">
         <div className="flex relative">
-          <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
-            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">FOUND ITEM</h2>
-            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5">Report Found Item Here!</h3>
+          <div className="px-8 py-8 relative z-10 w-full border-4 rounded-3xl border-gray-200 bg-white opacity-100 hover:border-gray-500 duration-300  hover:cursor-pointer hover:shadow-2xl">
+            <h2 className="tracking-widest text-base title-font font-medium text-center text-indigo-500 mb-1">FOUND ITEM</h2>
+            <h3 className="title-font text-sm font-medium text-gray-900 mb-3 text-center my-5">Report Found Item Here!</h3>
+          </div>
+        </div>
+        </Link>
+      </div>
+      
+      
+      
+      <div className="lg:w-1/3 sm:w-1/2 p-4">
+      <Link href="/user/dashboard/reported-items/lost">
+        <div className="flex relative">
+          <div className="px-8 py-8 relative z-10 w-full border-4 rounded-3xl border-gray-200 bg-white opacity-100 hover:border-gray-500 duration-300  hover:cursor-pointer hover:shadow-2xl">
+            <h2 className="tracking-widest text-base title-font font-medium text-center text-indigo-500 mb-1">REPORTED</h2>
+            <h3 className="title-font text-sm font-medium text-gray-900 mb-3 text-center my-5">Reported Found Item Here!</h3>
           </div>
         </div>
         </Link>
       </div>
       
       <div className="lg:w-1/3 sm:w-1/2 p-4">
+      <Link href="/user/dashboard/reported-items/found">
         <div className="flex relative">
-          <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
-            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
-            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5">Report Lost Item Here!</h3>
+          <div className="px-8 py-8 relative z-10 w-full border-4 rounded-3xl border-gray-200 bg-white opacity-100 hover:border-gray-500 duration-300  hover:cursor-pointer hover:shadow-2xl">
+            <h2 className="tracking-widest text-base title-font font-medium text-center text-indigo-500 mb-1">REPORTED</h2>
+            <h3 className="title-font text-sm font-medium text-gray-900 mb-3 text-center my-5">Reported Lost Item Here!</h3>
           </div>
         </div>
-      </div>
-      
-      <div className="lg:w-1/3 sm:w-1/2 p-4">
-        <div className="flex relative">
-          <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
-            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
-            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5">Report Lost Item Here!</h3>
-          </div>
-        </div>
-      </div>
-      
-      <div className="lg:w-1/3 sm:w-1/2 p-4">
-        <div className="flex relative">
-          <div className="px-8 py-8 relative z-10 w-full border-4 border-gray-200 bg-white opacity-100 hover:border-blue-200 hover:bg-sky-100 hover:cursor-pointer">
-            <h2 className="tracking-widest text-sm title-font font-medium text-center text-indigo-500 mb-1">LOST ITEM</h2>
-            <h3 className="title-font text-lg font-medium text-gray-900 mb-3 text-center my-5">Report Lost Item Here!</h3>
-          </div>
-        </div>
+        </Link>
       </div>
 
   

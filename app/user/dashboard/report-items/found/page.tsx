@@ -15,25 +15,55 @@ export default function ReportFoundItem() {
   const [location, setLocation] = useState("");
   const [imageId, setImageId] = useState("");
 
+  const [reportItem, setReportItem] = useState({});
+
   // Use the useUser hook to get the appendFoundItem function
     const user = useUser();
-    const { appendFoundItem } = user as any;
+    const { appendFoundItem, userId } = user as any;
+
+
+    const handleFoundReport = async (foundItem:FoundItem) => {
+      try {
+        const response = await fetch('http://localhost:3000/route/APIs/items/found', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(foundItem),
+        });
+  
+        if (response.ok) {
+          console.log('Found Item reported successfully!');
+          console.log(foundItem);
+        } else {
+          console.error('Failed to report item:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error during reporting:', error);
+      }
+    };
 
   // useEffect hook to handle side effects (in this case, form submission logic)
   useEffect(() => {
     // Logic to handle the form submission
     // This will run after the component has rendered
     const foundItem: FoundItem = {
+      user_id: userId,
       title: title,
-      description: description,
-      date: date,
+      item_description: description,
+      date_found: date,
       location: location,
-      image: imageId,
+      image_id: imageId,
+      is_returned: 0,
     };
+
+    
 
     // Check if all required fields are filled before submitting
     if (title && description && date && location && imageId) {
+      // setReportItem(foundItem);
       appendFoundItem(foundItem);
+      handleFoundReport(foundItem);
     }
   }, [title, description, date, location, imageId, appendFoundItem]);
 

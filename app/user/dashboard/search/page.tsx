@@ -49,7 +49,7 @@ export default function Search(){
                         <button onClick={manageFilter}
                         className={`
                         
-                        group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring activetext-opacity-75
+                        group inline-block rounded-full bg-gray-700  hover:text-white focus:outline-none focus:ring activetext-opacity-75
                         `}
                         
                         >
@@ -61,7 +61,7 @@ export default function Search(){
                         </button>
 
                         <button onClick={manageFilter}
-                        className="group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                        className="group inline-block rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75"
                         
                         >
                         <span
@@ -94,7 +94,7 @@ export default function Search(){
 <div className="grid grid-cols-12">
         {foundFilter && (<><div className="col-span-3 mx-2">
                     <article
-                        className=" rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
+                        className=" rounded-xl border-2 border-gray-500 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
                     >
                         <div className="rounded-[10px] bg-white p-4 sm:p-6">
 
@@ -127,7 +127,7 @@ export default function Search(){
     </div> */}
 
                             <button
-                                className="float-right group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openFoundModal}
+                                className="float-right group inline-block border-gray-700 border-2 rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openFoundModal}
 
                             >
                                 <span
@@ -154,7 +154,7 @@ export default function Search(){
 
                 </div><div className="col-span-3 mx-2">
                         <article
-                            className=" rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
+                            className="rounded-xl border-2 border-gray-500 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
                         >
                             <div className="rounded-[10px] bg-white p-4 sm:p-6">
 
@@ -173,7 +173,7 @@ export default function Search(){
                                 </h4>
 
                                 <button
-                                    className="float-right group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openFoundModal}
+                                    className="float-right group inline-block border-gray-700 border-2 rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openFoundModal}
 
                                 >
                                     <span
@@ -196,7 +196,7 @@ export default function Search(){
 
                     {lostFilter && (<><div className="col-span-3 mx-2">
                         <article
-                            className=" rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
+                            className="rounded-xl border-2 border-gray-500 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
                         >
                             <div className="rounded-[10px] bg-white p-4 sm:p-6">
 
@@ -215,7 +215,7 @@ export default function Search(){
                                 </h4>
 
                                 <button
-                                    className="float-right group inline-block rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openLostModal}
+                                    className="float-right group inline-block border-gray-700 border-2 rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openLostModal}
 
                                 >
                                     <span

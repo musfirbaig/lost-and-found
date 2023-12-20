@@ -14,7 +14,28 @@ export default function ReportLostItem() {
 
   // Use the useUser hook to get the appendLostItem function
     const user = useUser();
-    const { appendLostItem, usersData } = user as any;
+    const { appendLostItem, usersData, userId } = user as any;
+
+    const handleLostReport = async (foundItem:FoundItem) => {
+      try {
+        const response = await fetch('http://localhost:3000/route/APIs/items/lost', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(foundItem),
+        });
+  
+        if (response.ok) {
+          console.log('Found Item reported successfully!');
+          console.log(foundItem);
+        } else {
+          console.error('Failed to report item:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error during reporting:', error);
+      }
+    };
 
   // useEffect hook to handle side effects (in this case, form submission logic)
   useEffect(() => {
@@ -22,15 +43,18 @@ export default function ReportLostItem() {
     // This will run after the component has rendered
     const foundItem: FoundItem = {
       title: title,
-      description: description,
-      date: date,
+      item_description: description,
+      date_found: date,
       location: location,
-      image: imageId,
+      image_id: imageId,
+      user_id: userId,
+      is_returned: 0
     };
 
     // Check if all required fields are filled before submitting
     if (title && description && date && location && imageId) {
       appendLostItem(foundItem);
+      handleLostReport(foundItem);
       // console.log(usersData);
     }
   }, [title, description, date, location, imageId, appendLostItem]);

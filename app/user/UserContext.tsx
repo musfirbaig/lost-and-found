@@ -22,11 +22,13 @@ import {auth} from "../../config/firebase"
 
 
 export type FoundItem = {
+  user_id: string;
+  is_returned: number;
+  date_found: string;
+  item_description: string;
+  image_id: string;
   title: string;
-  description: string;
   location: string;
-  image: string;
-  date: string;
 };
 export type LostItem = {
   title: string;
@@ -64,8 +66,8 @@ export const UserProvider = ({ children }:{
     
     let data:UsersData = usersData;
     data[userId]["found_items"].push(foundItem);
-    console.log("append found item called");
-    console.log(data[userId]);
+    // console.log("append found item called");
+    // console.log(data[userId]);
     setUsersData(data);
 
   }
@@ -73,8 +75,8 @@ export const UserProvider = ({ children }:{
   function appendLostItem(lostItem:LostItem){
     let data:UsersData = usersData;
     data[userId]["lost_items"].push(lostItem);
-    console.log("append lost item called");
-    console.log(data[userId]);
+    // console.log("append lost item called");
+    // console.log(data[userId]);
     setUsersData(data);
   }
 
@@ -87,47 +89,47 @@ export const UserProvider = ({ children }:{
         "found_items": [
           {
             "title": "Bag",
-            "description": "It is a red bag",
+            "item_description": "It is a red bag",
             "location": "seecs parking",
-            "image": "hmbytyhsrmhlxngbbssf",
-            "date": "2023-12-18"
+            "image_id": "11_827303a4-c8da-410a-b23f-af98860af29a_n3ysv5",
+            "date_found": "10/12/2023"
           },
           {
               "title": "Laptop",
-              "description": "It is a dell Laptop",
+              "item_description": "It is a dell Laptop",
               "location": "seecs entrance",
-              "image": "cld-sample-4",
-              "date": "2023-12-18"
+              "image_id": "395430600-240x180_mp0vp0",
+              "date_found": "08/11/2023"
             },
             {
               "title": "Notebook",
-              "description": "It is a dux Notebook",
+              "item_description": "It is a dux Notebook",
               "location": "seecs backyard",
-              "image": "cld-sample-4",
-              "date": "2023-12-18"
+              "image_id": "b0a72a6f26712f3c66a928c3976b0289.jpg_750x750.jpg__zfusgw",
+              "date_found": "01/12/2023"
             }
         ],
         "lost_items": [
           {
             "title": "Phone",
-            "description": "It is samsung s6, with green back cover",
+            "item_description": "It is samsung s6, with green back cover",
             "location": "smme ground",
-            "image": "hmbytyhsrmhlxngbbssf",
-            "date": "2023-11-11"
+            "image_id": "412168046-600x450_vs75mp",
+            "date_found": "05/12/2023"
           },
           {
               "title": "Laptop",
-              "description": "It is a dell Laptop",
+              "item_description": "It is a dell Laptop",
               "location": "seecs entrance",
-              "image": "cld-sample-4",
-              "date": "2023-12-18"
+              "image_id": "403078646-240x180_a9rhqx",
+              "date_found": "09/12/2023"
             },
             {
               "title": "Tablet",
-              "description": "It is a asus tablet",
+              "item_description": "It is a asus tablet",
               "location": "sns",
-              "image": "cld-sample-4",
-              "date": "2023-12-18"
+              "image_id": "357829063-600x450_m8vfj0",
+              "date_found": "14/12/2023"
             }
         ]
       },

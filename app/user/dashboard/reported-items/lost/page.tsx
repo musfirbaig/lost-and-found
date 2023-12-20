@@ -49,8 +49,8 @@ export default function LostItems(){
       {lostItems.length>0 && (lostItems.map((item:any, index:number) => (
           <tr key={index}>
                   <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">{item['title']}</td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['date']}</td>
-              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['description']}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['date_found']}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['item_description']}</td>
               <td className="whitespace-nowrap px-4 py-2 text-gray-700 text-center">{item['location']}</td>
               <td className="whitespace-nowrap px-4 py-2">
                 <Link href={`lost/view/${index}`}>

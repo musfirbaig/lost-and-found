@@ -2,22 +2,25 @@ import Link from "next/link";
 import { UserProvider } from "../UserContext";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+
+  
   return (
     <div>
       {/* HEADER */}
       <header className="bg-gray-50 w-full">
-        <div className="mx-auto max-w-screen-xl px-4 py-3 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="mx-auto max-w-screen-xl px-4 py-1 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo in Header */}
           <div className="flex-shrink-0">
-            <span className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
+            {/* <span className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
               Logo
-            </span>
+            </span> */}
           </div>
 
 
 
           {/* Search and Notification Icons */}
           <div className="flex items-center gap-4">
+            {/* <h2>We Find</h2> */}
             {/* ... Search Input and Button ... */}
             {/* ... Notification Button ... */}
           </div>
@@ -27,7 +30,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <span className="sr-only">Profile</span>
             <img
               alt="Man"
-              src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+              src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png"
               className="h-10 w-10 rounded-full object-cover"
             />
           </a>
@@ -167,7 +170,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               
             </li>
 
-            <li>
+            {/* <li>
               <form action="/logout">
                 <button
                   type="submit"
@@ -176,27 +179,28 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   Logout
                 </button>
               </form>
-            </li>
+            </li> */}
           </ul>
         </details>
       </li>
 
       <li>
-        <a
-          href=""
+      <Link href="/login">
+        <span
           className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
         >
-          History
-        </a>
+          Logout
+        </span>
+      </Link>
       </li>
     </ul>
   </div>
 
-  <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
+  {/* <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
     <a href="#" className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50">
       <img
         alt="Man"
-        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+        src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png"
         className="h-10 w-10 rounded-full object-cover"
       />
 
@@ -208,14 +212,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </p>
       </div>
     </a>
-  </div>
+  </div> */}
 </div>
 
               </div>
 
               {/* DYNAMIC SECTION */}
               <section className="col-span-10 p-8">
-                <h1>Dashboard Layout</h1>
+                {/* <h1>Dashboard Layout</h1> */}
                 <UserProvider>
                     {children}
                 </UserProvider>
