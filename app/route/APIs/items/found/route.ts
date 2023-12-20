@@ -65,7 +65,6 @@ export const POST = async (req: Request, res: NextApiResponse) => {
       title,
     } = await req.json();
 
-    console.log("location:" + location);
     reportFoundItem(
       location,
       user_id,
