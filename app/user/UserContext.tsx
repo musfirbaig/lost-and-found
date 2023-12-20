@@ -82,7 +82,7 @@ export const UserProvider = ({ children }:{
     // const fileContent = fs.readFileSync(filePath, 'utf-8');
     // const data = JSON.parse(fileContent);
     const data = {
-      "wBv4E8BRPNOlc3Ocj8HD9ZyTF0n1": {
+      "6ZXjlblL0JSGx89I1Zp5IwaaI653": {
         "user_image" : "alksdfjlask",
         "found_items": [
           {
@@ -150,6 +150,7 @@ export const UserProvider = ({ children }:{
       // https://firebase.google.com/docs/reference/js/auth.user
 
       setUserId(user.uid);
+      console.log(user.uid);
 
       // this is a testing function , that fetches all usersdata, from fake users.json file
       if(Object.keys(usersData).length === 0){

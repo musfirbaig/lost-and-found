@@ -24,10 +24,12 @@ export function GeneralPage(){
   }, []);
 
 
-
-    const user = useUser();
-    const {userId} = user as any;
-    console.log(userId);
+  
+  // const user = useUser();
+  // const {userId, usersData} = useUser();
+    // const {userId, usersData} = user as any;
+    // console.log(userId);
+    const userId = useUser();
     const name = "musfirbaig";
 
     // console.log(useUser());
