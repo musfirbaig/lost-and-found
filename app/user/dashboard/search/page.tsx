@@ -37,7 +37,9 @@ export default function Search(){
             {/* Header container which contains filtering buttons */}
             <div className=" text-black p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <h1 className="text-2xl font-semibold">Your App Name</h1>
+                
+                {/* <h1 className="text-2xl font-semibold">Your App Name</h1> */}
+                <h1 className="text-lg font-semibold">LOST AND FOUND ITEMS</h1>
                 
                 <div className="flex space-x-4">
 

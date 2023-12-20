@@ -2,7 +2,13 @@ import Link from "next/link";
 import { useUser } from "../UserContext"
 export function GeneralPage(){
 
-    const userId = useUser();
+  // testing code by adding fetch requests to test apis
+  
+
+
+
+    const user = useUser();
+    const {userId} = user as any;
     console.log(userId);
     const name = "musfirbaig";
 
