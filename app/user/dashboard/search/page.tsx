@@ -1,5 +1,6 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useUser } from "../../UserContext";
 
 
 export default function Search(){
@@ -9,6 +10,23 @@ export default function Search(){
 
     const [foundFilter, setFoundFilter] = useState(true);
     const [lostFilter, setLostFilter] = useState(false);
+
+    const [foundItems, setFoundItems] = useState([]);
+    const [lostItems, setLostItems] = useState([]);
+    const user = useUser();
+    const {allItems} = user as any;
+
+    // const found_items = usersData[userId]["found_items"];
+  
+    useEffect(() => {
+      // This function will run after the component mounts
+      // You can perform asynchronous operations or side effects here
+      if (Object.keys(allItems).length>0) {
+        setFoundItems(allItems["found_items"]);
+        setLostItems(allItems["lost_items"]);
+        // You can perform operations or assign foundItems to something else here
+      }
+    }, [allItems]);
 
     const manageFilter = ()=>{
         setFoundFilter(!foundFilter);
@@ -92,67 +110,8 @@ export default function Search(){
 */}
 
 <div className="grid grid-cols-12">
-        {foundFilter && (<><div className="col-span-3 mx-2">
-                    <article
-                        className=" rounded-xl border-2 border-gray-500 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
-                    >
-                        <div className="rounded-[10px] bg-white p-4 sm:p-6">
-
-
-                            <a href="#">
-                                <h3 className="mt-0.5 text-sm font-medium text-gray-900">
-                                    Item : Iphone 14 pro max
-                                </h3>
-                            </a>
-
-                            <h4 className="mt-0.5 text-sm font-medium text-gray-900">
-                                Location : SEECS backyard
-                            </h4>
-                            <h4 className="mt-0.5 text-sm font-medium text-gray-900">
-                                Date : 20/12/2023
-                            </h4>
-
-                            {/* <div className="mt-4 flex flex-wrap gap-1">
-    <span
-        className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600"
-    >
-        Mobile
-    </span>
-
-    <span
-        className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600"
-    >
-        Iphone
-    </span>
-    </div> */}
-
-                            <button
-                                className="float-right group inline-block border-gray-700 border-2 rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openFoundModal}
-
-                            >
-                                <span
-                                    className="block rounded-full bg-white px-4 py-2 text-xs font-medium group-hover:bg-transparent"
-                                >
-                                    Claim
-                                </span>
-                            </button>
-
-                            {/* <button
-    className="group relative inline-block text-sm font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 -ml-4 md:-ml-6 float-right"
-    >
-    <span
-
-        
-    className="absolute inset-0 translate-x-0.5 translate-y-0.5 bg-indigo-600 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"
-    ></span>
-
-    <span className="relative block border border-current bg-white px-4 py-2 text-xs">Download</span>
-    </button> */}
-
-                        </div>
-                    </article>
-
-                </div><div className="col-span-3 mx-2">
+        {foundFilter && foundItems.length>0 && (foundItems.map((item:any, index:number) => (<>
+                        <div className="col-span-3 mx-3 my-3">
                         <article
                             className="rounded-xl border-2 border-gray-500 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
                         >
@@ -161,15 +120,15 @@ export default function Search(){
 
                                 <a href="#">
                                     <h3 className="mt-0.5 text-sm font-medium text-gray-900">
-                                        Item : Iphone 14 pro max
+                                        Item : {item.item}
                                     </h3>
                                 </a>
 
                                 <h4 className="mt-0.5 text-sm font-medium text-gray-900">
-                                    Location : SEECS backyard
+                                    Location : {item.location}
                                 </h4>
                                 <h4 className="mt-0.5 text-sm font-medium text-gray-900">
-                                    Date : 20/12/2023
+                                    Date : {item.date}
                                 </h4>
 
                                 <button
@@ -186,7 +145,7 @@ export default function Search(){
                             </div>
                         </article>
 
-                    </div></>)}
+                    </div></>)))}
 
 
 
@@ -194,24 +153,24 @@ export default function Search(){
                     {/* all lost items rendered window */}
 
 
-                    {lostFilter && (<><div className="col-span-3 mx-2">
+                    {lostFilter && lostItems.length>0 && (lostItems.map((item:any, index:number) => (<><div className="col-span-3 mx-3 my-3">
                         <article
-                            className="rounded-xl border-2 border-gray-500 p-0.5 transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
+                            className="rounded-xl border-2 border-gray-500 p-0.5  transition bg-[length:400%_400%] shadow-sm hover:[animation-duration:_4s]"
                         >
                             <div className="rounded-[10px] bg-white p-4 sm:p-6">
 
 
                                 <a href="#">
                                     <h3 className="mt-0.5 text-sm font-medium text-gray-900">
-                                        Item : Umrella
+                                        Item : {item.item}
                                     </h3>
                                 </a>
 
                                 <h4 className="mt-0.5 text-sm font-medium text-gray-900">
-                                    Location : Nbs Ground
+                                    Location : {item.location}
                                 </h4>
                                 <h4 className="mt-0.5 text-sm font-medium text-gray-900">
-                                    Date : 23/10/2023
+                                    Date : {item.date}
                                 </h4>
 
                                 <button
@@ -228,7 +187,7 @@ export default function Search(){
                             </div>
                         </article>
 
-                    </div></>)}
+                    </div></>)))}
 </div>
 
 {/* this model is for foundFilter */}
