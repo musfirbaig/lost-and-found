@@ -1,9 +1,9 @@
 "use client"
 import { useEffect, useState } from "react";
-import { useUser } from "../../UserContext";
+import { useUser } from "../UserContext";
 
 
-export default function Search(){
+export default function GeneralPage(){
 
     const [isFoundModalOpen, setFoundModalOpen] = useState(false);
     const [isLostModalOpen, setLostModalOpen] = useState(false);
@@ -57,7 +57,7 @@ export default function Search(){
             <div className="container mx-auto flex justify-between items-center">
                 
                 {/* <h1 className="text-2xl font-semibold">Your App Name</h1> */}
-                <h1 className="text-lg font-semibold">ALL LOST AND FOUND ITEMS</h1>
+                <h1 className="text-lg font-semibold">LOST AND FOUND ITEMS</h1>
                 
                 <div className="flex space-x-4">
 

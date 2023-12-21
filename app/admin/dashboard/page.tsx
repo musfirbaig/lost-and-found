@@ -1,9 +1,9 @@
 "use client"
 import { useEffect, useState } from "react";
-import { useUser } from "../../UserContext";
+import { useUser } from "../UserContext";
 
 
-export default function Search(){
+export default function GeneralPage(){
 
     const [isFoundModalOpen, setFoundModalOpen] = useState(false);
     const [isLostModalOpen, setLostModalOpen] = useState(false);
@@ -57,7 +57,7 @@ export default function Search(){
             <div className="container mx-auto flex justify-between items-center">
                 
                 {/* <h1 className="text-2xl font-semibold">Your App Name</h1> */}
-                <h1 className="text-lg font-semibold">ALL LOST AND FOUND ITEMS</h1>
+                <h1 className="text-lg font-semibold">LOST AND FOUND ITEMS</h1>
                 
                 <div className="flex space-x-4">
 
@@ -131,7 +131,7 @@ export default function Search(){
                                     Date : {item.date}
                                 </h4>
 
-                                <button
+                                {/* <button
                                     className="float-right group inline-block border-gray-700 border-2 rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openFoundModal}
 
                                 >
@@ -140,7 +140,7 @@ export default function Search(){
                                     >
                                         Claim
                                     </span>
-                                </button>
+                                </button> */}
 
                             </div>
                         </article>
@@ -173,7 +173,7 @@ export default function Search(){
                                     Date : {item.date}
                                 </h4>
 
-                                <button
+                                {/* <button
                                     className="float-right group inline-block border-gray-700 border-2 rounded-full bg-gray-700 hover:text-white focus:outline-none focus:ring active:text-opacity-75" onClick={openLostModal}
 
                                 >
@@ -182,7 +182,7 @@ export default function Search(){
                                     >
                                         Report
                                     </span>
-                                </button>
+                                </button> */}
 
                             </div>
                         </article>
